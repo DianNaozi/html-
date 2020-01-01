@@ -1,0 +1,210 @@
+/*首先要把全部margin和padding变成零!
+*为了提高兼容性
+*写法1：
+*不建议写，所有的元素都要跑一遍，效率低下
+*/
+/*
+ *{
+	margin: 0;
+	padding: 0;
+} 
+*/
+/* 正确写法! */
+body,div,p,ul,li,dl,dt,dd,h1,a{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: 微软雅黑,verdana, geneva, sans-serif;/*字体样式*/
+}
+html, body{
+	background: #dddddd;
+}
+
+#header,#banner,#content,#footer{
+	background:orangered;
+	width: 1176px;
+	margin: 0 auto;/*上下0 左右auto*/
+	/* height没有设置为0*/
+}
+#header{
+	overflow: hidden;
+	/*
+	由于float,header高度塌陷为0,会影响下面的内容
+	1.浮动会让子元素脱离文档流，所有子元素脱离时，父元素没有了高度
+	2.overflow：hidden；会消除子元素的浮动，然后自适应高度计算，父元素没有高度，所有不会裁剪
+	（这属于细节问题，成为大佬的必经之路）
+	*/
+}
+body{
+	padding-top: 45px;
+}
+/* img{
+	border: none;每个图片有边框但是我们看不见*/
+	
+/* 见到一个img就要把它变为block
+*外面有个a也要把他变为block
+ *方便设宽高
+ */
+#logo{
+	width: 222px;
+	height: 84px;
+	float: left;
+	background: #111111;
+}
+#logo a{
+	display: block;
+	width: 222px;
+	height: 84px;
+}
+#logo a img{
+	display: block;
+}
+
+#nav{
+	width: 954px;
+	height: 84px;
+	float: left;
+	background: indianred;
+}
+#nav li{
+	float: left;
+	list-style-type: none;
+}
+#nav li a{
+	display: block;
+	padding: 0 20px;
+	height: 84px;
+	line-height: 84px;
+	text-align: center;
+	float: left;
+	font-size: 23px;
+	color: #EEEEEE;
+	text-decoration: none;
+	font-family: ;
+}
+#nav li a:hover{
+	color: #111111;
+	font-size: 24px;
+	background: #EEEEEE;
+}
+#nav li .navActive{
+	background: linear-gradient(to top, red,yellow);/*渐变颜色代码*/
+	*background: #DDDDDD;
+	/*
+	*对IE6  linear不支持显示不出
+			认识*显示！，
+	*对于Chrome，第一行支持显示
+				第二行不认识*不显示
+				显示第一行
+				（css骇客）
+	*/
+}
+
+#banner {
+	margin: 10px auto;
+	height: 580px;
+}
+#banner a,#banner a img{
+	display: block;
+	width: 1176px;
+	height: 580px;
+}
+
+#content{
+	overflow: hidden;
+	background: #EAEAEA;
+	font-size: 12px;
+	line-height: 24px;
+}
+#leftArticle{
+	float: left;
+	margin: 10px;
+	display: inline;
+	/*IE6中用margin会造成双margin这样能解决*/
+	width: 765px;
+	margin-right: 0;
+	font-size: 24px;
+}
+#leftArticle a,#leftArticle a img{
+	display: block;
+	width: 765px;
+	height: 467px;
+}
+#leftArticle h1 #artid{
+	display: inline;
+}
+#leftArticle h1{
+	margin: 20px 0;
+}
+#leftArticle h1 a{
+	color: #900;
+	text-decoration: none;
+}
+#leftArticle h1 a:hover{
+	text-decoration: underline;
+	
+}
+h1{
+	font-size: 100%;
+}
+#leftArticle p{
+	color: #333;
+	text-indent: 2em;/*这是字体倍数基于font-size 此处为28px*/
+	font-size: 14px;
+	margin-bottom: 30px;/*段间距离*/
+}
+
+#rightInfo{
+	float: left;
+	margin: 10px;
+	width: 381px;
+	height: 800px;
+}
+#rightInfo dl{
+	margin-bottom: 10px;
+}
+#rightInfo dl dt{
+	font-size:15px;
+	font-weight: bold;/*加粗*/
+	text-indent: 20px;
+	background: #900;
+	height: 32px;
+	line-height: 32px;
+	color: #FFFFFF;
+	
+}
+#rightInfo dl dd{
+	height: 24px;
+	line-height: 24px;
+	color: #333;
+	background: #FFFFFF;
+	text-indent: 16px;
+	font-size: 13px;
+}
+#rightInfo dl dd:last-child{
+	margin-bottom: 20px;
+	/* 对所有dl中最后一个dd操作 */
+}
+#rightInfo dl dd a{
+	color: #333;
+	text-decoration: none;
+}
+#rightInfo dl dd a:hover{
+	color: #900;
+	text-decoration: underline;
+}
+
+#footer{
+	background: #FFFFFF;
+	padding-top: 18px;
+	height: 52px;
+	line-height: 18px;
+	color: #CCC;
+	text-align: center;
+	font-size: 12px;
+}
+#footer a{
+	color: #333;
+	text-decoration: underline;
+}
